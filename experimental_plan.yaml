@@ -1,0 +1,251 @@
+name : MLAD
+version: 1.0.0
+
+## 외부에서 데이터 가져오기 / 결과 저장하는 경우 해당 위치에 지정
+external_path:
+    - load_train_data_path: ./solution/sample_data/train
+    - load_inference_data_path: ./solution/sample_data/test
+    - save_train_artifacts_path:
+    - save_inference_artifacts_path:
+    - load_model_path:
+
+external_path_permission:
+    - aws_key_profile:
+
+## 실험에 필요한 파라미터를 설정함 
+## - 해당 위치에서 삭제되면, code 의 default 로 실행
+user_parameters:
+    - train_pipeline:
+        - step: input 
+          args:
+            - file_type: csv
+              encoding: utf-8
+          ui_args: 
+
+
+        - step: readiness  ## 필수
+          args:
+            - x_columns: [input_x0,input_x1,input_x2,input_x3]
+              y_column: '' #TRAIN_LABEL" #label"
+              groupkey_columns: 
+
+          ui_args: 
+            - x_columns
+            - y_column
+
+        - step: preprocess
+          args:
+            - handling_missing: fill_0 # dropna, interpolation, fill_number
+              handling_scaling_x: none  #none"         #none, standard, minmax, abs, robust
+              drop_duplicate_time: False   ## group 단위로 중복 확인 (time_column 없으면 미진행)
+              load_train_preprocess: False   ## (inference workflow 전용) True 이면, train preprocess 를 참조하여 진행
+              handling_downsampling_interval: 0   ## 0, 1, 2,... (0 이면 사용하지 않음)
+              downsampling_method:  #first"   ## first, last, mean, median 
+              difference_interval: 0
+
+          ui_args: 
+            - handling_missing
+            - handling_scaling_x
+            - drop_duplicate_time
+
+        - step: train
+          args:
+            - hpo_param: False
+              contamination: ''
+              parrallel_run: True
+              models :
+                - knn
+                - ocsvm
+                - lof
+                - isf
+              visualization: False
+
+          ui_args:
+            - hpo_param
+            - parrallel_run
+            - models
+
+    - inference_pipeline:
+        - step: input
+          args:
+            - none : 
+
+        - step: readiness
+          args:
+            - none : 
+
+        - step: preprocess
+          args:
+            - none :
+              
+        - step: inference
+          args:
+             - none :
+
+## asset 의 설치 정보를 기록       
+asset_source:
+    - train_pipeline:
+        - step: input
+          source:  ## git / local 지원
+            code: http://mod.lge.com/hub/dxtech/adassets/input.git
+            # code: local
+            branch: v1.0.0_tad
+            requirements:
+              - requirements.txt
+
+        - step: readiness
+          source:  ## git / local 지원
+            code: http://mod.lge.com/hub/dxtech/adassets/readiness.git
+            # code: local
+            branch: main
+            requirements:
+              - requirements.txt
+
+        - step: preprocess
+          source:  ## git / local 지원
+            code: http://mod.lge.com/hub/dxtech/adassets/preprocess.git
+            # code: local
+            branch: v1.0.0_tad
+            requirements:
+              - pandas==1.5.3
+              - numpy==1.26.4
+              - category_encoders
+              - statsmodels
+
+        - step: train
+          source:  ## git / local 지원
+            code: http://mod.lge.com/hub/dxtech/assets/mlad.git
+            # code: local
+            branch: v1.0.0_tad 
+            requirements:
+              - pandas==1.5.3
+              - numpy==1.26.4
+              - scikit-learn
+              - matplotlib
+              - tqdm
+              - optuna
+
+
+    - inference_pipeline:
+        - step: input
+          source:  ## git / local 지원
+            code: http://mod.lge.com/hub/dxtech/adassets/input.git
+            # code: local
+            branch: v1.0.0_tad
+            requirements:
+              - requirements.txt
+
+        - step: readiness
+          source:  ## git / local 지원
+            code: http://mod.lge.com/hub/dxtech/adassets/readiness.git
+            # code: local
+            branch: main
+            requirements:
+              - requirements.txt
+        - step: preprocess
+          source:  ## git / local 지원
+            code: http://mod.lge.com/hub/dxtech/adassets/preprocess.git
+            # code: local
+            branch: v1.0.0_tad
+            requirements:
+              - pandas==1.5.3
+              - numpy==1.26.4
+              - category_encoders
+
+        - step: inference
+          source:  ## git / local 지원
+            code: http://mod.lge.com/hub/dxtech/assets/mlad.git
+            # code: local
+            branch: v1.0.0_tad  
+            requirements:
+              - pandas==1.5.3
+              - numpy==1.26.4
+              - scikit-learn
+              - matplotlib
+              - tqdm
+              - optuna
+
+
+########
+ui_args_detail:
+    - train_pipeline:
+        - step: input 
+          args:
+              - name: x_columns
+                description: Please enter the names of the target x columns in the DataFrame, separated by commas.
+                type: string
+                default: ""
+                range:
+                  - 1
+                  - 1000000
+
+              - name: y_column
+                description: Dataframe에 있는 y 컬럼 명을 입력합니다.
+                type: string
+                default: ''
+                range:
+                  - 1
+                  - 1000000
+
+        - step: preprocess 
+          args:
+              - name: handling_missing
+                description: how to managing missing values
+                type: single_selection
+                default: fill_0
+                selectable:
+                  - fill_0
+                  - dropna
+                  - interpolation
+                  - fill_number
+
+              - name: handling_scaling_x
+                description: how to managing value scaling
+                type: single_selection
+                default: standard
+                selectable:
+                  - standard
+                  - none
+                  - standard
+                  - minmax
+                  - abs
+                  - robust
+
+        - step: train 
+          args:
+              - name: models
+                description: Select AD models
+                type: multi_selection
+                selectable:
+                  - knn
+                  - ocsvm
+                  - lof
+                  - isf
+                default:
+                  - knn
+                  - ocsvm
+                  - lof
+                  - isf
+              - name: hpo_param
+                description: TBD
+                type: single_selection
+                default: False
+                selectable:
+                  - True 
+                  - False
+
+              - name: contamination
+                description: TBD
+                type: string
+                default: ""
+                range:
+                  - 1
+                  - 1000000    
+
+control:
+    - get_asset_source: once # (str), once(default) | every
+    - backup_artifacts: True # (str), True(default) | False
+    - backup_log: True # (str), True(default) | False
+    - backup_size: 1000 # (int), 1000(default)
+    - interface_mode: memory # (str), memory(default) | file
+
