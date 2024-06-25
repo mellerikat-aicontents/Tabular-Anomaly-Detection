@@ -111,7 +111,7 @@ asset_source:
 
         - step: train
           source:  ## git / local 지원
-            code: http://mod.lge.com/hub/dxtech/assets/mlad.git
+            code: https://github.com/mellerikat-aicontents/tad_modeling.git
             # code: local
             branch: v1.0.0_tad 
             requirements:
@@ -150,7 +150,7 @@ asset_source:
 
         - step: inference
           source:  ## git / local 지원
-            code: http://mod.lge.com/hub/dxtech/assets/mlad.git
+            code: https://github.com/mellerikat-aicontents/tad_modeling.git
             # code: local
             branch: v1.0.0_tad  
             requirements:
