@@ -87,9 +87,9 @@ asset_source:
     - train_pipeline:
         - step: input
           source:  ## git / local 지원
-            code: http://mod.lge.com/hub/dxtech/adassets/input.git
+            code: https://github.com/mellerikat-aicontents/input.git
             # code: local
-            branch: v1.0.0_tad
+            branch: v1.0.1_tablular
             requirements:
               - requirements.txt
 
