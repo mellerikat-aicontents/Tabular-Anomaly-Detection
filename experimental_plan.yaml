@@ -95,9 +95,9 @@ asset_source:
 
         - step: readiness
           source:  ## git / local 지원
-            code: http://mod.lge.com/hub/dxtech/adassets/readiness.git
+            code: https://github.com/mellerikat-aicontents/readiness.git
             # code: local
-            branch: main
+            branch: v1.0.0_tad
             requirements:
               - requirements.txt
 
@@ -137,9 +137,9 @@ asset_source:
 
         - step: readiness
           source:  ## git / local 지원
-            code: http://mod.lge.com/hub/dxtech/adassets/readiness.git
+            code: https://github.com/mellerikat-aicontents/readiness.git
             # code: local
-            branch: main
+            branch: v1.0.0_tad
             requirements:
               - requirements.txt
               
