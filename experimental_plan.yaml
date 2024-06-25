@@ -103,14 +103,11 @@ asset_source:
 
         - step: preprocess
           source:  ## git / local 지원
-            code: http://mod.lge.com/hub/dxtech/adassets/preprocess.git
+            code: https://github.com/mellerikat-aicontents/preprocess.git
             # code: local
             branch: v1.0.0_tad
             requirements:
-              - pandas==1.5.3
-              - numpy==1.26.4
-              - category_encoders
-              - statsmodels
+              - requirements.txt
 
         - step: train
           source:  ## git / local 지원
@@ -145,13 +142,11 @@ asset_source:
               
         - step: preprocess
           source:  ## git / local 지원
-            code: http://mod.lge.com/hub/dxtech/adassets/preprocess.git
+            code: https://github.com/mellerikat-aicontents/preprocess.git
             # code: local
             branch: v1.0.0_tad
             requirements:
-              - pandas==1.5.3
-              - numpy==1.26.4
-              - category_encoders
+              - requirements.txt
 
         - step: inference
           source:  ## git / local 지원
