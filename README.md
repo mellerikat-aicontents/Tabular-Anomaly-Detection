@@ -1,11 +1,11 @@
-# MLAD 프로젝트
+# TAD 프로젝트
 
-MLAD(머신러닝 이상 탐지) 프로젝트는 여러 이상 탐지 모델을 사용하여 데이터의 이상 징후를 탐지하고, 이를 분석 및 시각화하는 프로젝트입니다. 본 프로젝트는 Python으로 구현되어 있으며, `pipenv` 환경을 사용하여 의존성을 관리합니다.
+TAD(Tabular 이상 탐지) 프로젝트는 여러 이상 탐지 모델을 사용하여 데이터의 이상 징후를 탐지하고, 이를 분석 및 시각화하는 프로젝트입니다. 본 프로젝트는 Python으로 구현되어 있으며, `pipenv` 환경을 사용하여 의존성을 관리합니다.
 
 ## 설치 및 환경 설정
 먼저 해당 레포지토리를 클론합니다
 ```bash
-git clone http://mod.lge.com/hub/dxtech/assets/mlad.git
+git clone https://github.com/mellerikat-aicontents/Tabular-Anomaly-Detection.git
 ```
 
 본 프로젝트를 시작하기 전에 필요한 라이브러리와 환경을 설정하기 위해 아래의 명령어를 실행합니다.
