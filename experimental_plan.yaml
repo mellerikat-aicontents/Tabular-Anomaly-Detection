@@ -105,7 +105,7 @@ asset_source:
           source:  ## git / local 지원
             code: https://github.com/mellerikat-aicontents/preprocess.git
             # code: local
-            branch: v1.0.0_tad
+            branch: v1.0.1_tad
             requirements:
               - requirements.txt
 
@@ -113,14 +113,9 @@ asset_source:
           source:  ## git / local 지원
             code: https://github.com/mellerikat-aicontents/tad_modeling.git
             # code: local
-            branch: v1.0.0_tad 
+            branch: v1.0.1_tad 
             requirements:
-              - pandas==1.5.3
-              - numpy==1.26.4
-              - scikit-learn
-              - matplotlib
-              - tqdm
-              - optuna
+              - requirements.txt
 
 
     - inference_pipeline:
@@ -144,7 +139,7 @@ asset_source:
           source:  ## git / local 지원
             code: https://github.com/mellerikat-aicontents/preprocess.git
             # code: local
-            branch: v1.0.0_tad
+            branch: v1.0.1_tad
             requirements:
               - requirements.txt
 
@@ -152,14 +147,9 @@ asset_source:
           source:  ## git / local 지원
             code: https://github.com/mellerikat-aicontents/tad_modeling.git
             # code: local
-            branch: v1.0.0_tad  
+            branch: v1.0.1_tad  
             requirements:
-              - pandas==1.5.3
-              - numpy==1.26.4
-              - scikit-learn
-              - matplotlib
-              - tqdm
-              - optuna
+              - requirements.txt
 
 
 ########
