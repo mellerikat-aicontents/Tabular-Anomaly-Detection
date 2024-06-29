@@ -89,7 +89,7 @@ asset_source:
           source:  ## git / local 지원
             code: https://github.com/mellerikat-aicontents/input.git
             # code: local
-            branch: v1.0.1_tablular
+            branch: v1.0.1_tad
             requirements:
               - requirements.txt
 
@@ -97,7 +97,7 @@ asset_source:
           source:  ## git / local 지원
             code: https://github.com/mellerikat-aicontents/readiness.git
             # code: local
-            branch: v1.0.0_tad
+            branch: v1.0.1_tad
             requirements:
               - requirements.txt
 
@@ -128,7 +128,7 @@ asset_source:
           source:  ## git / local 지원
             code: https://github.com/mellerikat-aicontents/input.git
             # code: local
-            branch: v1.0.1_tablular
+            branch: v1.0.1_tad
             requirements:
               - requirements.txt
 
@@ -136,7 +136,7 @@ asset_source:
           source:  ## git / local 지원
             code: https://github.com/mellerikat-aicontents/readiness.git
             # code: local
-            branch: v1.0.0_tad
+            branch: v1.0.1_tad
             requirements:
               - requirements.txt
               
