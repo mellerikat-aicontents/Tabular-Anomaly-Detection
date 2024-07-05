@@ -27,7 +27,6 @@ user_parameters:
           args:
             - x_columns: [input_x0,input_x1,input_x2,input_x3]
               y_column: '' #TRAIN_LABEL" #label"
-              groupkey_columns: 
 
           ui_args: 
             - x_columns
@@ -51,7 +50,6 @@ user_parameters:
           args:
             - hpo_param: False
               contamination: ''
-              parrallel_run: True
               models :
                 - knn
                 - ocsvm
@@ -61,7 +59,6 @@ user_parameters:
 
           ui_args:
             - hpo_param
-            - parrallel_run
             - models
 
     - inference_pipeline:
