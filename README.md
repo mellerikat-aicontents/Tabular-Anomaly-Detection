@@ -1,54 +1,13 @@
-# TAD 프로젝트
+# Welcome to TAD !
 
-TAD(Tabular 이상 탐지) 프로젝트는 여러 이상 탐지 모델을 사용하여 데이터의 이상 징후를 탐지하고, 이를 분석 및 시각화하는 프로젝트입니다. 본 프로젝트는 Python으로 구현되어 있으며, `pipenv` 환경을 사용하여 의존성을 관리합니다.
+Tabular AD is AI content that identifies abnormal patterns and outliers within tabular data. 
+It leverages machine learning-based unsupervised learning methodologies, allowing it to detect anomalies without the need for labeled data.
+One of the primary advantages of Tabular AD is its ability to learn using only normal data, enabling high-accuracy anomaly detection even in the absence of outliers within the training set. 
+Additionally, Tabular AD enhances performance by ensembling various machine learning models, thus overcoming the limitations of individual models and achieving more precise anomaly detection.
 
-## 설치 및 환경 설정
-먼저 해당 레포지토리를 클론합니다
-```bash
-git clone https://github.com/mellerikat-aicontents/Tabular-Anomaly-Detection.git
-```
-
-본 프로젝트를 시작하기 전에 필요한 라이브러리와 환경을 설정하기 위해 아래의 명령어를 실행합니다.
-
-```bash
-pip install pipenv
-pipenv install
-pipenv shell
-```
-
-이 명령어들은 `pipenv`를 사용하여 Python 가상 환경을 설정하고 필요한 라이브러리를 설치합니다.
-
-## 구성 요소
-
-### `main.py`
-
-메인 스크립트 파일입니다. 이 파일은 데이터 전처리, 모델 훈련, 최적화 및 테스트 과정을 조정합니다.
-
-1. **데이터 전처리**: `asset_preprocess` 모듈을 사용하여 데이터를 로드하고 전처리합니다.
-2. **모델 선택**: YAML 구성 파일에서 지정된 모델을 불러옵니다.
-3. **모델 훈련 및 최적화**: `asset_train` 모듈을 사용하여 모델을 훈련시키고 최적화합니다.
-4. **테스트 및 결과 출력**: `asset_test` 모듈을 사용하여 최적화된 모델로 테스트를 수행하고 결과를 출력합니다.
-
-### `config.yaml`
-
-프로젝트의 구성을 정의하는 YAML 파일입니다. 이 파일은 데이터 경로, 결과 저장 설정, 전처리 방법, 사용할 모델 등을 설정합니다.
-
-### 모듈
-
-- `asset_preprocess`: 데이터를 로드하고 필요에 따라 전처리를 수행합니다.
-- `asset_train`: 선택된 모델을 훈련하고 최적화합니다.
-- `asset_test`: 훈련된 모델을 테스트 데이터에 적용하고 결과를 평가합니다.
-
-## 실행 방법
-
-프로젝트 디렉토리에서 다음 명령어를 실행하여 주요 과정을 시작할 수 있습니다.
-
-```bash
-python main.py
-```
-
-이 명령은 `main.py` 스크립트를 실행하여 전처리, 훈련, 테스트 과정을 순차적으로 진행합니다.
-
-## 결과
-
-훈련 및 테스트 과정의 결과는 콘솔에 출력되며, 설정에 따라 모델과 요약 정보는 지정된 디렉토리에 저장됩니다.
+# User Guide
+- [Quick guide](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/ad/)
+- [AD Features](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/ad/features)
+- [AD Input and Artifacts](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/ad/data)
+- [Parameter](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/ad/parameter)
+- [Release note](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/ad/release)
