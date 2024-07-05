@@ -38,7 +38,6 @@ user_parameters:
             - handling_missing: fill_0 # dropna, interpolation, fill_number
               handling_scaling_x: none  #none"         #none, standard, minmax, abs, robust
               drop_duplicate_time: False   ## group 단위로 중복 확인 (time_column 없으면 미진행)
-              load_train_preprocess: False   ## (inference workflow 전용) True 이면, train preprocess 를 참조하여 진행
               handling_downsampling_interval: 0   ## 0, 1, 2,... (0 이면 사용하지 않음)
               downsampling_method:  #first"   ## first, last, mean, median 
               difference_interval: 0
