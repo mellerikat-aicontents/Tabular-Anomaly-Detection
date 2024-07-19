@@ -186,7 +186,6 @@ ui_args_detail:
                 type: single_selection
                 default: standard
                 selectable:
-                  - standard
                   - none
                   - standard
                   - minmax
