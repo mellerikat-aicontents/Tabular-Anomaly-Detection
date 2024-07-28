@@ -25,8 +25,8 @@ user_parameters:
 
         - step: readiness  ## 필수
           args:
-            - x_columns: [value] # input_x0,input_x1,input_x2,input_x3
-              y_column: 'anomaly' # "label"  If there is a label, enter it
+            - x_columns: [value] # ex, [input_x0,input_x1,input_x2,input_x3]
+              y_column: 'anomaly' # If there is a label, enter it → 'label'
 
           ui_args: 
             - x_columns
