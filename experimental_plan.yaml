@@ -25,7 +25,7 @@ user_parameters:
 
         - step: readiness  ## 필수
           args:
-            - x_columns: [input_x0,input_x1,input_x2,input_x3]
+            - x_columns: [value] # input_x0,input_x1,input_x2,input_x3
               y_column: '' #TRAIN_LABEL" #label"
 
           ui_args: 
@@ -224,7 +224,7 @@ ui_args_detail:
                   - 1000000    
 
 control:
-    - get_asset_source: once # (str), once(default) | every
+    - get_asset_source: every # (str), once(default) | every
     - backup_artifacts: True # (str), True(default) | False
     - backup_log: True # (str), True(default) | False
     - backup_size: 1000 # (int), 1000(default)
