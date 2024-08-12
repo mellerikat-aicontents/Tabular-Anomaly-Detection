@@ -27,10 +27,12 @@ user_parameters:
           args:
             - x_columns: [value] # ex, [input_x0,input_x1,input_x2,input_x3]
               y_column: 'anomaly' # If there is a label, enter it → 'label'
+              groupkey_columns: '' #[key1, key2]
 
           ui_args: 
             - x_columns
             - y_column
+            - groupkey_columns
 
         - step: preprocess
           args:
