@@ -50,14 +50,14 @@ user_parameters:
 
         - step: train
           args:
-            - hpo_param: False
-              contamination: ''
-              models :
+            - models :
                 - knn
                 - ocsvm
                 - lof
                 - isf
+              contamination: ''
               visualization: False
+              hpo_param: False
 
           ui_args:
             - hpo_param
